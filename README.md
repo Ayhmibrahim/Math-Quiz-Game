@@ -1,51 +1,47 @@
-# 🎮 Math Quiz Game in C++
+# 🎮 Math Quiz Game - Flowchart
 
-A fun console-based math quiz game built using C++ 🧠✨
-This project was created while learning problem-solving and programming fundamentals, with the goal of practicing functions, enums, structs, and clean coding in an enjoyable way 🚀
+```mermaid
+flowchart TD
 
-## ✨ Features
+    A([Start]) --> B[Read Number Of Questions]
+    B --> C[Choose Quiz Level]
+    C --> D[Choose Operation Type]
 
-* 🎲 Randomly generated math questions
-* 📚 Multiple difficulty levels:
+    D --> E{Questions Remaining?}
 
-  * Easy
-  * Medium
-  * Hard
-  * Mixed
-* ➕➖✖️➗ Different operation types
-* ✅ Tracks correct answers
-* ❌ Counts wrong answers
-* 🏆 Final result screen (Pass / Fail)
-* 🎨 Colored feedback screen for better experience
-* 🔁 Play again feature
+    E -- Yes --> F[Generate Random Numbers]
+    F --> G{Operation Type = Mix?}
 
-## 🛠️ Concepts Practiced
+    G -- Yes --> H[Generate Random Operation]
+    G -- No --> I[Use Selected Operation]
 
-* Functions
-* Enums
-* Structs
-* Random number generation
-* Loops & conditions
-* Modular programming
-* User interaction in console apps
+    H --> J[Calculate Correct Answer]
+    I --> J
 
-## 💻 Technologies
+    J --> K[Display Question]
+    K --> L[Read Player Answer]
 
-* C++
-* Console Application
+    L --> M{Answer Correct?}
 
-## 🚀 How to Run
+    M -- Yes --> N[Increase Right Answers]
+    M -- No --> O[Increase Wrong Answers]
 
-1. Compile the project using any C++ compiler.
-2. Run the program.
-3. Choose:
+    N --> P[Show Right Answer Message]
+    O --> Q[Show Wrong Answer Message]
 
-   * Number of questions
-   * Difficulty level
-   * Operation type
-4. Start solving and have fun 😄
+    P --> E
+    Q --> E
 
-## 📖 Purpose of the Project
+    E -- No --> R{Right Answers > Wrong Answers?}
 
-This project is part of my learning journey in C++ and problem-solving 💡
-I built it to improve my programming logic and practice writing organized code while creating something interactive and enjoyable 🎯
+    R -- Yes --> S[Result = Pass]
+    R -- No --> T[Result = Fail]
+
+    S --> U[Display Final Results]
+    T --> U
+
+    U --> V{Play Again?}
+
+    V -- Yes --> B
+    V -- No --> W([End])
+```
